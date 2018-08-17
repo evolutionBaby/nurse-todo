@@ -1,3 +1,5 @@
-const storeModules = {}
+import visits from './visits'
 
-export default storeModules
+export default {
+  visits
+}

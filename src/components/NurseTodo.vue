@@ -1,10 +1,16 @@
 <template>
-  <div>Nurse Visits</div>
+  <div>
+    <visits-list></visits-list>
+  </div>
 </template>
 
 <script>
+import VisitsList from './visits_components/visits-list'
 export default {
-  name: 'NurseTodo'
+  name: 'NurseTodo',
+  components: {
+    VisitsList
+  }
 }
 </script>
 
