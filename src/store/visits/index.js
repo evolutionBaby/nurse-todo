@@ -4,7 +4,8 @@ import mocks from './utils/mocks'
 const namespaced = true
 
 const state = {
-  visits: []
+  visits: [],
+  visitToShow: null
 }
 
 const getters = {
@@ -14,7 +15,8 @@ const getters = {
   }),
   done: state => state.visit.filter((visit) => {
     return visit.done
-  })
+  }),
+  visitDetails: state => state.visitToShow
 }
 
 const actions = {
@@ -25,6 +27,13 @@ const actions = {
   },
   markAsDone ({commit}, visit) {
     commit(types.MARK_AS_DONE, {visit})
+  },
+  showVisitDetails ({commit}, visit) {
+    commit(types.SHOW_DETAILS, {visit})
+  },
+  backToList ({commit}) {
+    let visit = null
+    commit(types.SHOW_DETAILS, {visit})
   }
 }
 
@@ -42,6 +51,9 @@ const mutations = {
     visit.done = true
 
     state.visits.splice(index, 1, visit)
+  },
+  [types.SHOW_DETAILS] (state, {visit}) {
+    state.visitToShow = visit
   }
 }
 

@@ -48,7 +48,7 @@ export default {
       return `${this.totalFinished}/${this.totalVisitsToday}`
     },
     todayDate () {
-      return moment(this.today).format("DD-MM-YYYY")
+      return moment(this.today).format('DD-MM-YYYY')
     }
   },
   mounted () {

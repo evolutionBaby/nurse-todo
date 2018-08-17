@@ -1,5 +1,7 @@
 <template>
-  <div class="VisitCard">
+  <div
+  @click="showVisitDetails(visit)"
+  class="VisitCard">
     <div class="VisitCard__wrapper">
       <div class="VisitCard__patient-card">
         <img :src="avatarUrl" class="VisitCard__patient-avatar">
@@ -62,6 +64,9 @@ export default {
   methods: {
     markAsDone () {
       this.$store.dispatch('visits/markAsDone', this.visit)
+    },
+    showVisitDetails () {
+      this.$store.dispatch('visits/showVisitDetails', this.visit)
     }
   }
 }
@@ -70,6 +75,7 @@ export default {
 <style scoped lang="scss">
 .VisitCard {
   width: 100%;
+  cursor: pointer;
 
   &__wrapper {
     width: 100%;
